@@ -6,7 +6,9 @@ const miniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    index: path.resolve(__dirname, "./src/js/index.js"),
+    index: path.resolve(__dirname, "./src/js/Index.js"),
+    list: path.resolve(__dirname, "./src/js/List.js"),
+    detail: path.resolve(__dirname, "./src/js/Detail.js"),
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
@@ -69,6 +71,32 @@ module.exports = {
       title:'小米商城',
       chunksSortMode:'manual', // 要求按照下面chunks数组中的顺序进行排列
       chunks:['index'],
+      excludeChunks:['node_modules'],
+      hash:true
+    }),
+    new htmlWebpackPlugin({
+      minify:{
+        removeComments:true,   // 删除注释
+        collapseWhitespace:true,  // 删除空格换行
+      },
+      filename:'list.html',
+      template:path.resolve(__dirname,'src/list.html'),
+      title:'小米商城',
+      chunksSortMode:'manual', // 要求按照下面chunks数组中的顺序进行排列
+      chunks:['list'],
+      excludeChunks:['node_modules'],
+      hash:true
+    }),
+    new htmlWebpackPlugin({
+      minify:{
+        removeComments:true,   // 删除注释
+        collapseWhitespace:true,  // 删除空格换行
+      },
+      filename:'detail.html',
+      template:path.resolve(__dirname,'src/detail.html'),
+      title:'小米商城',
+      chunksSortMode:'manual', // 要求按照下面chunks数组中的顺序进行排列
+      chunks:['detail'],
       excludeChunks:['node_modules'],
       hash:true
     }),

@@ -1,2 +1,2 @@
-import "../css/index.scss";
-console.log('小米')
+import {tplReplace,  trimSpaces,getUrlQuery,throttle} from '../utils/tools.js';
+console.log(tplReplace)
