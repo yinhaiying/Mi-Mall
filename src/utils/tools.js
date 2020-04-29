@@ -2,7 +2,10 @@
 
 // 模板替换
 function tplReplace(tpl,replaceObject){
-  tpl.replace(/{{(.*?)}}/g,(node,key) =>{
+  return tpl.replace(/{{(.*?)}}/g,(node,key) =>{
+    // console.log(node); 第一个参数是匹配得到的对象 {{logo}}
+    // console.log(key);  第二个参数是括号内的子项logo
+    // console.log(replaceObject)  替换成replaceObject[logo]
     return replaceObject[key]
   })
 }
