@@ -9,7 +9,6 @@ class NavMenu {
   }
   appendMenuCards(data){
     let list = "";
-    console.log(data)
     data.forEach((item,index) => {
       if(index < 6){
         list += tools.tplReplace(navMenuItemTpl(),{
