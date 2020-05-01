@@ -3,10 +3,12 @@ import navItemTpl from "./tpl/nav-item.tpl";
 import tools from "../../../utils/tools";
 import "./index.scss";
 
+import {NavMenu} from "./nav_menu"
 
 class Nav{
   constructor(){
     this.name = "headerNav";
+    this.navMenu = new NavMenu();
   }
   tpl(data){
     let list = "";
@@ -17,7 +19,8 @@ class Nav{
       })
     });
     return tools.tplReplace(navTpl(),{
-      navItems:list
+      navItems:list,
+      navMenu:this.navMenu.tpl
     })
   }
 }
