@@ -13,7 +13,7 @@ class Index extends App{
     })
   }
   render(){
-    new Header(this.$app);
+    new Header(this.$app,this.cache.fieldDatas);
     $('body').prepend(this.$app);
   }
 }

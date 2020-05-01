@@ -27,8 +27,6 @@ class App {
         fieldDatas:res.field_data,
         swiperDatas:res.swiper_data
       }
-      console.log('cache')
-      console.log(this.cache)
     })
   }
 }
