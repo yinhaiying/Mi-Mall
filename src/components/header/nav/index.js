@@ -9,6 +9,7 @@ class Nav{
   constructor(){
     this.name = "headerNav";
     this.navMenu = new NavMenu();
+    this.htmlCache = {};
   }
   tpl(data){
     let list = "";
@@ -29,7 +30,11 @@ class Nav{
     const field = $(this).attr('data-field');
     const $navMenu = $('.J_navMenu');
     let navMenuItemHTML = oNav.navMenu.appendMenuCards(phoneDatas.filter((item) => item.field=== field));
-    $navMenu.html(navMenuItemHTML);
+    // 缓存处理
+    if(!oNav.htmlCache[field]){
+      oNav.htmlCache[field] = navMenuItemHTML;
+    }
+    $navMenu.html(oNav.htmlCache[field]);
   }
 }
 
