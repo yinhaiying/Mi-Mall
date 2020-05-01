@@ -5,23 +5,29 @@ import {Nav} from "./nav/index.js";
 import tools from "../../utils/tools"
 
 class Header {
-  constructor(el,fieldDatas){
+  constructor(el,fieldDatas,phoneDatas){
     this.name = 'header';
     this.$el = el;
     this.logo = new Logo();
     this.nav = new Nav();
     this.fieldDatas = fieldDatas;
+    this.phoneDatas = phoneDatas;
     this.init();
   }
-  init(){
-    this.render();
+  async init(){
+    await this.render();
+    this.bindEvent();
   }
-  render(){
+  async render(){
     let html = tools.tplReplace(tpl(),{
       logo:this.logo.tpl(),
       nav:this.nav.tpl(this.fieldDatas)
     });
-    this.$el.append(html);
+    await this.$el.append(html);
+  }
+  bindEvent(){
+    const $nav = $('.J_nav');
+    $nav.on('mouseenter','.nav-item',{phoneDatas:this.phoneDatas,oNav:this.nav},this.nav.navMouseIn)
   }
 }
 export {

@@ -10,10 +10,11 @@ class Index extends App{
       swiper:true,
       phone:true,
       field:true
-    })
+    });
+
   }
   render(){
-    new Header(this.$app,this.cache.fieldDatas);
+    new Header(this.$app,this.cache.fieldDatas,this.cache.phoneDatas);
     $('body').prepend(this.$app);
   }
 }

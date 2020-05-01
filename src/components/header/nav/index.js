@@ -23,6 +23,14 @@ class Nav{
       navMenu:this.navMenu.tpl
     })
   }
+  navMouseIn(e){
+    const { data } = e;
+    const { phoneDatas,oNav } = data;
+    const field = $(this).attr('data-field');
+    const $navMenu = $('.J_navMenu');
+    let navMenuItemHTML = oNav.navMenu.appendMenuCards(phoneDatas.filter((item) => item.field=== field));
+    $navMenu.html(navMenuItemHTML);
+  }
 }
 
 export {
