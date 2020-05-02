@@ -1,4 +1,5 @@
 import config from "../utils/config"
+import $ from  "../js/jquery.min.js"
 class IndexModel {
   getDatas({swiper,phone,field}){
     const url = `getDatas?swiper=${swiper}&phone=${phone}&field=${field}`;
