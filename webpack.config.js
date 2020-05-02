@@ -4,7 +4,7 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const miniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: {
     index: path.resolve(__dirname, "./src/js/Index.js"),
     list: path.resolve(__dirname, "./src/js/List.js"),
